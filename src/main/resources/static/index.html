@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Футуристичный опросник 2025</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Space+Grotesk:wght@400;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="particles-container" id="particles-js"></div>
+
+<div class="survey-container" id="survey-app">
+  <div class="survey-header">
+    <h1 class="survey-title">
+      <span class="title-gradient">ОПРОСНИК</span>
+      <span class="title-year">2025</span>
+    </h1>
+    <p class="survey-description">Помогите нам стать лучше — ответьте на несколько вопросов</p>
+    <div class="theme-toggle">
+      <input type="checkbox" id="theme-switch" class="toggle-input">
+      <label for="theme-switch" class="toggle-label">
+        <span class="toggle-handle"></span>
+        <span class="icons">
+                        <svg class="sun" viewBox="0 0 24 24"><path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z"></path></svg>
+                        <svg class="moon" viewBox="0 0 24 24"><path d="M12,18C11.11,18 10.26,17.8 9.5,17.45C11.56,16.5 13,14.42 13,12C13,9.58 11.56,7.5 9.5,6.55C10.26,6.2 11.11,6 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z"></path></svg>
+                    </span>
+      </label>
+    </div>
+  </div>
+
+  <form id="survey-form" class="glass-panel">
+    <div class="form-section" data-aos="fade-up">
+      <div class="form-group floating-input">
+        <input type="text" id="name" name="name" required placeholder=" ">
+        <label for="name">Ваше имя</label>
+        <span class="input-border"></span>
+      </div>
+
+      <div class="form-group floating-input">
+        <input type="email" id="email" name="email" required placeholder=" ">
+        <label for="email">Ваш email</label>
+        <span class="input-border"></span>
+      </div>
+    </div>
+
+    <div class="form-actions" data-aos="fade-up" data-aos-delay="250">
+      <button type="submit" class="submit-btn">
+        <span class="btn-text">Отправить</span>
+        <span class="btn-icon">
+                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+                    </span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
