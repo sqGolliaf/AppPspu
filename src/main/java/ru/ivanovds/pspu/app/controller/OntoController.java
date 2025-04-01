@@ -3,9 +3,7 @@ package ru.ivanovds.pspu.app.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.ivanovds.pspu.app.domain.EmployeeResponse;
 import ru.ivanovds.pspu.app.services.OntoService;
 
@@ -22,8 +20,13 @@ public class OntoController {
         return new ResponseEntity<>(ontoService.firstNodeByName("#Старт"), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<EmployeeResponse>> getNodesById(@PathVariable Integer id) {
-        return new ResponseEntity<>(ontoService.getNodesById(id), HttpStatus.OK);
+    @GetMapping("/to/{id}")
+    public ResponseEntity<List<EmployeeResponse>> getNodesByIdTo(@PathVariable Integer id) {
+        return new ResponseEntity<>(ontoService.getNodesByIdTo(id), HttpStatus.OK);
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<EmployeeResponse> saveAnswer(@RequestBody EmployeeResponse resp) {
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

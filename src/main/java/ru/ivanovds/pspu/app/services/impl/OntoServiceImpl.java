@@ -40,7 +40,7 @@ public class OntoServiceImpl implements OntoService {
     }
 
     @Override
-    public List<EmployeeResponse> getNodesById(Integer id) {
+    public List<EmployeeResponse> getNodesByIdTo(Integer id) {
         Node node = dataOnt.getDataOnto().getNodeByID(id);
         ArrayList<Node> nodes = dataOnt.getDataOnto().getNodesLinkedTo(node, "a_path_of");
         if (nodes == null || nodes.isEmpty()) {
