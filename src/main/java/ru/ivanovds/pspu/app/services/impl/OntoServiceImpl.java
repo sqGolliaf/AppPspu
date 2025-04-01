@@ -42,10 +42,24 @@ public class OntoServiceImpl implements OntoService {
     @Override
     public List<EmployeeResponse> getNodesByIdTo(Integer id) {
         Node node = dataOnt.getDataOnto().getNodeByID(id);
-        ArrayList<Node> nodes = dataOnt.getDataOnto().getNodesLinkedTo(node, "a_path_of");
-        if (nodes == null || nodes.isEmpty()) {
-            nodes = dataOnt.getDataOnto().getNodesLinkedTo(node, "is_a");
-        }
+        ArrayList<Node> nodesAPathOf = dataOnt.getDataOnto().getNodesLinkedTo(node, "a_path_of");
+        ArrayList<Node> nodesIsA = dataOnt.getDataOnto().getNodesLinkedTo(node, "is_a");
+        ArrayList<Node> result = new ArrayList<>(nodesIsA.size() + nodesAPathOf.size());
+        result.addAll(nodesIsA);
+        result.addAll(nodesAPathOf);
+
+        return result.stream()
+                .map(it -> new EmployeeResponse(
+                        it.getID(),
+                        it.getName(),
+                        it.getStorage())
+                ).toList();
+    }
+
+    @Override
+    public List<EmployeeResponse> getNodesByIdFrom(Integer id) {
+        Node node = dataOnt.getDataOnto().getNodeByID(id);
+        ArrayList<Node> nodes = dataOnt.getDataOnto().getNodesLinkedFrom(node, "postion");
 
         return nodes.stream()
                 .map(it -> new EmployeeResponse(

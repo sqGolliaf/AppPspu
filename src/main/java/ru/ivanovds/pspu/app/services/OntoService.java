@@ -7,6 +7,6 @@ import java.util.List;
 public interface OntoService {
     List<EmployeeResponse> nodes();
     List<EmployeeResponse> firstNodeByName(String name);
-
     List<EmployeeResponse> getNodesByIdTo(Integer id);
+    List<EmployeeResponse> getNodesByIdFrom(Integer id);
 }

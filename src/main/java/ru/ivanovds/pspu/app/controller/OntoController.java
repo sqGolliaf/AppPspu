@@ -25,6 +25,11 @@ public class OntoController {
         return new ResponseEntity<>(ontoService.getNodesByIdTo(id), HttpStatus.OK);
     }
 
+    @GetMapping("/from/{id}")
+    public ResponseEntity<List<EmployeeResponse>> getNodesByIdFrom(@PathVariable Integer id) {
+        return new ResponseEntity<>(ontoService.getNodesByIdFrom(id), HttpStatus.OK);
+    }
+
     @PostMapping("/")
     public ResponseEntity<EmployeeResponse> saveAnswer(@RequestBody EmployeeResponse resp) {
         return new ResponseEntity<>(HttpStatus.CREATED);
