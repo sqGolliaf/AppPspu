@@ -22,13 +22,8 @@ public class OntoController {
         return new ResponseEntity<>(ontoService.firstNodeByName("#Старт"), HttpStatus.OK);
     }
 
-    @GetMapping("/from/{id}")
-    public ResponseEntity<List<EmployeeResponse>> getFromNodes(@PathVariable Integer id) {
-        return new ResponseEntity<>(ontoService.getNodesFrom(id), HttpStatus.OK);
-    }
-
-    @GetMapping("/to/{id}")
-    public ResponseEntity<List<EmployeeResponse>> getToNodes(@PathVariable Integer id) {
-        return new ResponseEntity<>(ontoService.getNodesTo(id), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<List<EmployeeResponse>> getNodesById(@PathVariable Integer id) {
+        return new ResponseEntity<>(ontoService.getNodesById(id), HttpStatus.OK);
     }
 }
