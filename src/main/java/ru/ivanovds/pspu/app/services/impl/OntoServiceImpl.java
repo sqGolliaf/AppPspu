@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.ivanovds.pspu.app.domain.EmployeeResponse;
 import ru.ivanovds.pspu.app.domain.SaveResponse;
+import ru.ivanovds.pspu.app.model.FieldChecker;
 import ru.ivanovds.pspu.app.model.Node;
 import ru.ivanovds.pspu.app.repo.OntoRepository;
 import ru.ivanovds.pspu.app.services.OntoService;
@@ -95,8 +96,6 @@ public class OntoServiceImpl implements OntoService {
             fields.put(node.getName().toLowerCase(), result);
         }
 
-
-
         return formatGOSTCitation(
                 fields.getOrDefault("название", ""),
                 fields.getOrDefault("сведения об ответственности", ""),
@@ -105,7 +104,8 @@ public class OntoServiceImpl implements OntoService {
                 fields.getOrDefault("сведения об издании", ""),
                 fields.getOrDefault("дата публикации", ""),
                 fields.getOrDefault("сведения о нумерации", ""),
-                fields.getOrDefault("сведения о страницах", "")
+                fields.getOrDefault("сведения о страницах", ""),
+                fields.getOrDefault("сведение об авторе", "")
         );
     }
 
@@ -169,7 +169,8 @@ public class OntoServiceImpl implements OntoService {
             String publisher,
             String year,
             String numbering,
-            String pages
+            String pages,
+            String author
     ) {
         StringBuilder sb = new StringBuilder();
 
@@ -177,6 +178,7 @@ public class OntoServiceImpl implements OntoService {
         if (!title.isBlank()) sb.append(title).append(": ");
         if (!edition.isBlank()) sb.append(edition).append(" / ").append(responsibility).append(". ");
         if (!place.isBlank()) sb.append("— ").append(place).append(": ");
+        if (!author.isBlank()) sb.append("— ").append(author).append(" ");
         if (!publisher.isBlank()) sb.append(publisher).append(", ");
         if (!year.isBlank()) sb.append(year).append(". ");
         if (!numbering.isBlank()) sb.append("— ").append(numbering).append(". ");
