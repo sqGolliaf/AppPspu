@@ -14,10 +14,9 @@ public class FieldChecker {
     }
 
     public String sanitizeAuthor(String input) {
-        // Исправим регистр и пробелы между инициалами
         input = input.trim().replaceAll("\\s+", " ");
-        input = input.replaceAll("([А-ЯЁ])\\.([А-ЯЁ])\\.", "$1. $2."); // исправить "И.А." на "И. А."
-        input = input.substring(0, 1).toUpperCase() + input.substring(1); // первая заглавная
+        input = input.replaceAll("([А-ЯЁ])\\.([А-ЯЁ])\\.", "$1. $2.");
+        input = input.substring(0, 1).toUpperCase() + input.substring(1);
         return input;
     }
 

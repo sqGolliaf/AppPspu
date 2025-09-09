@@ -1,12 +1,10 @@
 package ru.ivanovds.pspu.app.repo;
 
 import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import ru.ivanovds.pspu.app.model.Onto;
+import ru.ivanovds.models.Onto;
 
 import java.io.IOException;
 

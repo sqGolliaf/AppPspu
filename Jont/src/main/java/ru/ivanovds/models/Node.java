@@ -1,4 +1,4 @@
-package ru.ivanovds.pspu.app.model;
+package ru.ivanovds.models;
 
 import org.json.JSONException;
 import org.json.JSONObject;

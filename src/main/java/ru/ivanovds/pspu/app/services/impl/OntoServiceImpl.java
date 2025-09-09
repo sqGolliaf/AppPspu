@@ -2,10 +2,9 @@ package ru.ivanovds.pspu.app.services.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import ru.ivanovds.models.Node;
 import ru.ivanovds.pspu.app.domain.EmployeeResponse;
 import ru.ivanovds.pspu.app.domain.SaveResponse;
-import ru.ivanovds.pspu.app.model.FieldChecker;
-import ru.ivanovds.pspu.app.model.Node;
 import ru.ivanovds.pspu.app.repo.OntoRepository;
 import ru.ivanovds.pspu.app.services.OntoService;
 

@@ -1,1 +1,3 @@
-rootProject.name = 'AppPspu'
+rootProject.name = 'OntoCite'
+
+include 'Jont'
