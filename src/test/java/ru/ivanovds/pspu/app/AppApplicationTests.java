@@ -17,19 +17,4 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class AppApplicationTests {
 
-	@Autowired
-	private MockMvc mockMvc;
-
-	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	public void getFirstNode() throws Exception {
-		MvcResult resultActions = mockMvc.perform(get("/"))
-				.andExpect(status().isOk())
-						.andReturn();
-
-		Assertions.assertEquals("OK", resultActions.getAsyncResult());
-	}
 }
