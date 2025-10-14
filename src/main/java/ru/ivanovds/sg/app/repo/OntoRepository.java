@@ -1,0 +1,19 @@
+package ru.ivanovds.sg.app.repo;
+
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.stereotype.Repository;
+import ru.ivanovds.models.Onto;
+
+import java.io.IOException;
+
+@Getter
+@Repository
+public class OntoRepository {
+    private final Onto dataOnto;
+
+    public OntoRepository(@Value("${file.onto.url}") Resource resource) throws IOException {
+        dataOnto = new Onto(resource.getInputStream());
+    }
+}
