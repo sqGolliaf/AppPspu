@@ -1,11 +1,12 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.4'
-	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.springframework.boot' version "4.0.1"
+	id 'io.spring.dependency-management' version "1.1.7"
 }
 
-group = 'ru.ivanovds.sg'
-version = '0.0.2-SNAPSHOT'
+group = 'ru.sg'
+version = '0.0.3-SNAPSHOT'
+description = 'Project for bibliographic references in documents'
 
 java {
 	toolchain {
@@ -13,29 +14,44 @@ java {
 	}
 }
 
+jar {
+	enabled = false
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
 repositories {
 	mavenCentral()
 }
 
+ext {
+	set('springCloudVersion', "2025.1.0")
+}
+
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
-	implementation 'org.springframework.boot:spring-boot-starter-artemis'
-//	implementation 'org.springframework.kafka:spring-kafka'
-	implementation 'org.json:json:20250107'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
-    compileOnly 'org.projectlombok:lombok:1.18.36'
-	annotationProcessor 'org.projectlombok:lombok:1.18.36'
+	implementation 'org.json:json:20250107'
 
-	testCompileOnly 'org.projectlombok:lombok:1.18.36'
-	testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	implementation project (':Jont')
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
 }
 
 tasks.withType(JavaCompile).configureEach {
